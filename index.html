@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Ping coming soon page</title>
+
+    <script
+      src="https://kit.fontawesome.com/ea4456f54e.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="main.js" defer></script>
+    <style>
+      /* GENERAL SETTING --------------------------------------------------------- */
+      @import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;600;700&display=swap");
+
+      :root {
+        /* COLORS */
+        --color-primary: hsl(223, 87%, 63%);
+        --color-blue: hsl(223, 100%, 88%);
+        --color-dark-blue: hsl(209, 33%, 12%);
+        --color-red: hsl(354, 100%, 66%);
+        --color-gray: hsl(0, 0%, 59%);
+
+        /* FONT */
+        --font-display: "Libre Franklin", sans-serif;
+      }
+
+      html {
+        font-size: 62.5%;
+        box-sizing: border-box;
+      }
+
+      *,
+      *:before,
+      *:after {
+        padding: 0;
+        margin: 0;
+        box-sizing: inherit;
+        list-style: none;
+        vertical-align: middle;
+      }
+
+      body {
+        font-size: 1.6rem;
+        font-family: var(--font-display);
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .container {
+        max-width: 450px;
+        height: 100vh;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        padding: 6rem 2rem;
+
+        text-align: center;
+      }
+
+      /* GENERAL SETTING --------------------------------------------------------- */
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        gap: 5rem;
+      }
+
+      .logo {
+        align-self: center;
+        width: 8rem;
+      }
+
+      .illustration__img {
+        width: 100%;
+      }
+
+      .heading-1 {
+        color: var(--color-gray);
+        font-size: 2.5rem;
+        font-weight: 300;
+        margin-bottom: 2rem;
+
+        line-height: 2.5rem;
+      }
+
+      .text__content {
+        font-weight: 300;
+      }
+
+      .heading-1 span {
+        color: black;
+        font-weight: 700;
+        vertical-align: baseline;
+      }
+
+      .input {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .input__email {
+        padding: 2rem 4rem;
+
+        font-size: 1.5rem;
+
+        border-radius: 3rem;
+        border: 1px solid var(--color-blue);
+
+        outline: none;
+
+        position: relative;
+      }
+
+      /* .input__email:focus:invalid {
+        border: 1px solid var(--color-red);
+      } */
+
+      label {
+        margin-top: 0.5rem;
+        margin-bottom: 2rem;
+
+        color: var(--color-red);
+        font-size: 1.4rem;
+        font-style: italic;
+
+        opacity: 0;
+        /* display: none; */
+
+        max-height: 0;
+
+        transition: 0.3s;
+
+        position: relative;
+        z-index: 200;
+      }
+
+      /* .input__email:focus:invalid + label {
+        max-height: 2rem;
+        opacity: 1;
+      } */
+
+      /* .input__email:focus:invalid ~ .btn-notify {
+        margin-top: 1rem;
+      } */
+
+      .btn-notify {
+        padding: 2rem;
+        margin-top: -3rem;
+
+        border-radius: 3rem;
+        border: none;
+
+        background-color: var(--color-primary);
+
+        font-size: 1.5rem;
+        color: white;
+
+        box-shadow: 0 1rem 2rem -1rem var(--color-primary);
+
+        transition: 0.3s;
+      }
+
+      .social__list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+
+        margin-bottom: 2rem;
+      }
+
+      .social__item {
+        width: 3rem;
+        aspect-ratio: 1;
+        border: 1px solid var(--color-blue);
+        border-radius: 50%;
+      }
+
+      .social__link {
+        color: var(--color-primary);
+        font-weight: 500;
+        line-height: 2.5rem;
+        margin: auto;
+
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+      }
+
+      .copy-right {
+        font-size: 1.2rem;
+        color: var(--color-gray);
+      }
+
+      /* RWD--------------------------------------------------------- */
+      @media screen and (min-width: 65em) {
+        .container {
+          max-width: 40.5em;
+        }
+
+        .heading-1 {
+          font-size: 4.5rem;
+          margin-bottom: 4rem;
+        }
+
+        .text__content {
+          font-size: 2rem;
+        }
+
+        .input {
+          flex-direction: row;
+
+          position: relative;
+        }
+
+        .input__email {
+          flex: 2;
+        }
+
+        /* .input__email:focus:invalid ~ .btn-notify {
+          margin-top: 0;
+        } */
+
+        label {
+          position: absolute;
+          top: 100%;
+          left: 4rem;
+        }
+
+        .btn-notify {
+          flex: 1;
+          margin-top: 0;
+          cursor: pointer;
+        }
+
+        .btn-notify:hover {
+          opacity: 0.8;
+        }
+
+        .social__link {
+          transition: 0.2s;
+          cursor: pointer;
+        }
+
+        .social__link:hover {
+          color: white;
+          background-color: var(--color-primary);
+        }
+      }
+
+      /* RWD--------------------------------------------------------- */
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <div class="content">
+        <img src="images/logo.svg" alt="company logo" class="logo" />
+        <div class="text">
+          <h1 class="text__heading heading-1">
+            We are launching <span>soon!</span>
+          </h1>
+          <p class="text__content">Subscribe and get notified</p>
+        </div>
+        <div class="input">
+          <input
+            type="email"
+            class="input__email"
+            id="email"
+            placeholder="Your email address..."
+            required
+          />
+          <label for="email" class="err-msg"
+            >Please provide a valid email address</label
+          >
+          <button class="btn btn-notify">Notify Me</button>
+        </div>
+        <div class="illustration">
+          <img
+            src="/images/illustration-dashboard.png"
+            alt="dash board"
+            class="illustration__img"
+          />
+        </div>
+      </div>
+
+      <div class="footer">
+        <ul class="social__list">
+          <li class="social__item">
+            <a href="#" class="social__link icon-facebook">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li class="social__item">
+            <a href="#" class="social__link icon-twitter"
+              ><i class="fa fa-twitter" aria-hidden="true"></i
+            ></a>
+          </li>
+          <li class="social__item">
+            <a href="#" class="social__link icon-instagram"
+              ><i class="fa fa-instagram" aria-hidden="true"></i
+            ></a>
+          </li>
+        </ul>
+        <span class="copy-right"
+          >&copy; Copyright Ping. All rights reserved.</span
+        >
+      </div>
+    </main>
+  </body>
+</html>
